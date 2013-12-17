@@ -45,7 +45,7 @@ class GlobalMetar(callbacks.Plugin):
             metarString = urllib2.urlopen("http://weather.noaa.gov/pub/data/observations/metar/stations/%s.TXT" % icao.upper())
             metarString = metarString.read()
             metarString = metarString.split("\n")
-            irc.reply("METAR for %s %s" % (icao, metarString[1]))
+            irc.reply("%s" % (metarString[1]))
         except urllib2.HTTPError, e:
             if e.code == 404:
                 irc.reply("ICAO not found")
